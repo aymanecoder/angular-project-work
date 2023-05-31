@@ -7,20 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements  OnInit {
 
-  menuHandler: boolean = true;
-  mdOptions: boolean = true;
-  search: boolean = true;
-  menuHandlerBtn() {
-      this.menuHandler = !this.menuHandler;
-  }
-  mdOptionsToggle() {
-      this.mdOptions = !this.mdOptions;
-  }
-  searchToggle() {
-      this.search = !this.search;
-  }
-  constructor() {}
+  show: boolean = false
+  image="assets/logo-footer.png";
+  showMenu(){
+    this.show =! this.show
 
+
+  }
 
   ngOnInit(): void {
 
