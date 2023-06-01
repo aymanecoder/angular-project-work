@@ -8,7 +8,9 @@ import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { AdminModule } from './admin/admin.module';
+
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,10 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    RouterModule
+    AdminModule
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
