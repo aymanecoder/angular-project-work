@@ -6,7 +6,7 @@ const routes: Routes = [
   {path: 'login', component:LoginComponent},
   {path:'home',loadChildren:()=>import('./home/home.module').then(m=>m.HomeModule)},
   {path:'shared',loadChildren:()=>import('./_shared/_shared.module').then(m=>m.SharedModule)},
-  {path:'admin',loadChildren:()=>import('./admin/admin.module').then(m=>m.AdminModule)}
+  {path:'Admin',loadChildren:()=>import('./admin/admin.module').then(m=>m.AdminModule)}
 ];
 
 @NgModule({
