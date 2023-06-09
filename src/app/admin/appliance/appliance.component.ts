@@ -22,6 +22,32 @@ export class ApplianceComponent implements OnInit {
      this.appliances$ = this.listAppliance.getAppliances();
 
   }
+  // showModal = false;
+  // appliance = {
+  //   name: '',
+  //   type: ''
+  // };
 
+  // openModal() {
+  //   this.showModal = true;
+  // }
 
+  // closeModal() {
+  //   this.showModal = false;
+  //   this.appliance = {
+  //     name: '',
+  //     type: ''
+  //   };
+  // }
+
+  // onSubmit() {
+  //   console.log(this.appliance);
+  //   // Add code to save the form data to the backend or perform some other action
+  //   this.closeModal();
+  // }
+
+  showModal = false;
+  toggleModal(){
+    this.showModal = !this.showModal;
+  }
 }
