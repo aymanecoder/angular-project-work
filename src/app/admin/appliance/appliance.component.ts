@@ -57,6 +57,8 @@ export class ApplianceComponent implements OnInit {
         console.log(`Error creating appliance: ${err}`);
       }
     });
+    
+
   }
 
   showModal = false;

@@ -988,13 +988,16 @@
         <div
           class="min-w-screen min-h-screen bg-gray-100 flex items-center justify-center bg-gray-100 font-sans overflow-hidden"
         >
-          <div class="w-full lg:w-5/6" style="margin-bottom: 400px">
+          <div class="w-full lg:w-5/6" style="margin-bottom: 200px">
             <button id="open" class="px-5 py-2 bg-indigo-500 hover:bg-indigo-700 text-white cursor-pointer rounded-md" style="margin-left: 1265px;" (click)="toggleModal()">
               Add Appliance
           </button>
           <!-- <button class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="toggleModal()">
             Open regular modal
           </button> -->
+
+
+
           <div *ngIf="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
             <div class="relative w-auto my-6 mx-auto max-w-3xl">
               <!--content-->
@@ -1041,23 +1044,23 @@
                         </select>
                       </div>
                     </div>
+                    <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+                      <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="toggleModal()">
+                        Close
+                      </button>
+                      <button type="submit" class="bg-indigo-500 text-white active:bg-indigo-600 font-bold uppercase text-sm px-6 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+                        Save
+                      </button>
+
+                    </div>
                     </form>
                 </div>
                 <!--footer-->
-                <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
-                  <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="toggleModal()">
-                    Close
-                  </button>
-                  <button type="submit" class="bg-indigo-500 text-white active:bg-indigo-600 font-bold uppercase text-sm px-6 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
-                    Save
-                  </button>
-                  {{modalForm.value | json}}
-                </div>
+
               </div>
             </div>
           </div>
           <div *ngIf="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
-
 
 
 
@@ -1184,6 +1187,5 @@
     </div>
   </div>
 </div>
-
 
 
