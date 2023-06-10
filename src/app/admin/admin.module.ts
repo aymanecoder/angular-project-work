@@ -5,6 +5,7 @@ import { AdminComponent } from './admin.component';
 import { AsideAdminComponent } from './aside-admin/aside-admin.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ApplianceComponent } from './appliance/appliance.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 const routes : Routes = [
@@ -21,7 +22,8 @@ const routes : Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ReactiveFormsModule
 
   ],
   exports: [AdminComponent,AsideAdminComponent,ApplianceComponent]

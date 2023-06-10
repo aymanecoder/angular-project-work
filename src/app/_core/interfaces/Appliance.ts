@@ -1,10 +1,10 @@
 export interface Appliance{
-  libelle: string;
-  dbid:string;
-  reference:string;
-  disponibilite:boolean;
+  libelle: string |null;
+  dbid:string | null;
+  reference:string | null;
+  disponibilite:boolean | null;
   type: {
-    libelle:string;
+    libelle:string | null;
   }
 
 }

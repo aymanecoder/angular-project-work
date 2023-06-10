@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Appliance } from 'src/app/_core/interfaces/Appliance';
+import { AddApplianceService } from 'src/app/_core/services/add-appliance.service';
 import { ListApplianceService } from 'src/app/_core/services/list-appliance.service';
 
 @Component({
@@ -13,38 +15,49 @@ export class ApplianceComponent implements OnInit {
   isMenu: boolean = false;
   isSearch: boolean = false;
   appliances$! :Observable<Appliance[]>;
+  // appliance$! :Observable<Appliance[]>;
+  modalForm: FormGroup;
 
-  constructor(private listAppliance:ListApplianceService){}
+
+
+  constructor(private listAppliance:ListApplianceService,private applianceAj$ :AddApplianceService,private fb :FormBuilder){
+    this.modalForm = this.fb.group({
+      libelle: ['', Validators.required],
+      reference: ['', Validators.required],
+      dbid: [''],
+      type: [''],
+      disponibilite: [false]
+    });
+  }
+
+
 
 
   ngOnInit(): void {
-
      this.appliances$ = this.listAppliance.getAppliances();
-
   }
-  // showModal = false;
-  // appliance = {
-  //   name: '',
-  //   type: ''
-  // };
 
-  // openModal() {
-  //   this.showModal = true;
-  // }
 
-  // closeModal() {
-  //   this.showModal = false;
-  //   this.appliance = {
-  //     name: '',
-  //     type: ''
-  //   };
-  // }
+  onSubmit() {
+    const formValues = this.modalForm.value;
 
-  // onSubmit() {
-  //   console.log(this.appliance);
-  //   // Add code to save the form data to the backend or perform some other action
-  //   this.closeModal();
-  // }
+    const appliance: Appliance = {
+      libelle: formValues.libelle,
+      reference: formValues.reference,
+      dbid: formValues.dbid,
+      type: { libelle: formValues.type },
+      disponibilite: formValues.disponibilite
+    };
+
+    this.applianceAj$.addAppliance(appliance).subscribe({
+      next: (newAppliance) => {
+        console.log(`New appliance created: ${newAppliance}`);
+      },
+      error: (err) => {
+        console.log(`Error creating appliance: ${err}`);
+      }
+    });
+  }
 
   showModal = false;
   toggleModal(){

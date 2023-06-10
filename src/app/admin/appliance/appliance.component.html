@@ -1012,27 +1012,31 @@
                 </div>
                 <!--body-->
                 <div class="relative p-6 flex-auto">
-                  <form class="space-y-4" action="#" method="POST">
+                  <form [formGroup]="modalForm" class="space-y-4" (ngSubmit)="onSubmit()">
                     <input type="hidden" name="remember" value="True">
                     <div class="rounded-md shadow-sm -space-y-px">
                       <div class="grid gap-6">
                         <div class="col-span-12">
                           <label for="libelle" class="block text-sm font-medium text-gray-700">libelle</label>
-                          <input type="text" name="libelle" id="libelle" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                          <input type="text" name="libelle" formControlName="libelle" id="libelle" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         </div>
 
                         <div class="col-span-12">
                           <label for="reference" class="block text-sm font-medium text-gray-700">reference</label>
-                          <input type="text" name="reference" id="reference" autocomplete="reference" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                          <input type="text" name="reference" formControlName="reference" id="reference" autocomplete="reference" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        </div>
+                        <div class="col-span-12">
+                          <label for="dbid" class="block text-sm font-medium text-gray-700">dbid</label>
+                          <input type="text" name="dbid" formControlName="dbid" id="dbid" autocomplete="dbid" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         </div>
                         <div class="col-span-12">
                           <label for="type" class="block text-sm font-medium text-gray-700">type</label>
-                          <input type="text" name="type" id="type" autocomplete="type" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                          <input type="text" id="type" name="type" formControlName="type" autocomplete="type" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         </div>
-                        <select class="py-3 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
-                          <option selected name="disponibilite">Disponibilite</option>
-                          <option>Active</option>
-                          <option>Inactive</option>
+                        <select name="disponibilite" formControlName="disponibilite" class="py-3 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+                          <option selected>Disponibilite</option>
+                          <option value="true">True</option>
+                          <option value="false">False</option>
 
                         </select>
                       </div>
@@ -1044,9 +1048,10 @@
                   <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="toggleModal()">
                     Close
                   </button>
-                  <button class="bg-indigo-500 text-white active:bg-indigo-600 font-bold uppercase text-sm px-6 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="toggleModal()">
+                  <button type="submit" class="bg-indigo-500 text-white active:bg-indigo-600 font-bold uppercase text-sm px-6 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
                     Save
                   </button>
+                  {{modalForm.value | json}}
                 </div>
               </div>
             </div>
@@ -1064,6 +1069,7 @@
                   >
                     <th class="py-3 px-6 text-left">Libelle</th>
                     <th class="py-3 px-6 text-left">Reference</th>
+                    <th class="py-3 px-6 text-left">dbid</th>
                     <th class="py-3 px-6 text-center">type</th>
                     <th class="py-3 px-6 text-center">Disponibilite</th>
                     <th class="py-3 px-6 text-center">Actions</th>
@@ -1082,6 +1088,11 @@
                     <td class="py-3 px-6 text-left">
                       <div class="flex items-center">
                         <span>{{ appliance.reference }}</span>
+                      </div>
+                    </td>
+                    <td class="py-3 px-6 text-left">
+                      <div class="flex items-center">
+                        <span>{{ appliance.dbid }}</span>
                       </div>
                     </td>
                     <td class="py-3 px-6 text-center">
