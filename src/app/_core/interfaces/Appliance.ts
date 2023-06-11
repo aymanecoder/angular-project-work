@@ -1,4 +1,5 @@
 export interface Appliance{
+  id: number;
   libelle: string |null;
   dbid:string | null;
   reference:string | null;
