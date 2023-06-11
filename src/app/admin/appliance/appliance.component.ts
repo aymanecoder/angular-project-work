@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Observable } from 'rxjs';
 import { Appliance } from 'src/app/_core/interfaces/Appliance';
 import { AddApplianceService } from 'src/app/_core/services/add-appliance.service';
+import { DeleteService } from 'src/app/_core/services/delete.service';
 import { EditService } from 'src/app/_core/services/edit.service';
 import { ListApplianceService } from 'src/app/_core/services/list-appliance.service';
 
@@ -16,13 +17,22 @@ export class ApplianceComponent implements OnInit {
   isMenu: boolean = false;
   isSearch: boolean = false;
   appliances$! :Observable<Appliance[]>;
+  appliances!: Appliance[];
   // appliance$! :Observable<Appliance[]>;
   modalForm: FormGroup;
-  @Input() appliance!: Appliance;
-  updateForm!: FormGroup;
+
+  applianceToUpdate ={
+    libelle:'',
+    reference:'',
+    dbid:'',
+    disponibilite:'',
+    type:{
+      libelle:''
+    },
+  }
 
 
-  constructor(private listAppliance:ListApplianceService,private applianceAj$ :AddApplianceService,private fb :FormBuilder,private applianceUp$ : EditService){
+  constructor(private listAppliance:ListApplianceService,private applianceAj$ :AddApplianceService,private fb :FormBuilder,private applianceUp$ : EditService,private applianceDel$ : DeleteService){
     this.modalForm = this.fb.group({
       libelle: ['', Validators.required],
       reference: ['', Validators.required],
@@ -30,14 +40,9 @@ export class ApplianceComponent implements OnInit {
       type: [''],
       disponibilite: [false]
     });
-      // this.updateForm = this.fb.group({
-    //   libelle: [this.appliance.libelle],
-    //   reference: [this.appliance.reference],
-    //   dbid: [this.appliance.dbid],
-    //   type: [this.appliance.type.libelle],
-    //   disponibilite: [this.appliance.disponibilite],
-    // });
+
   }
+
 
 
 
@@ -46,13 +51,7 @@ export class ApplianceComponent implements OnInit {
 
      this.appliances$ = this.listAppliance.getAppliances();
     //  this.listAppliance.getAppliances().subscribe(res=>console.log(res));
-          this.updateForm = this.fb.group({
-      libelle: [this.appliance.libelle],
-      reference: [this.appliance.reference],
-      dbid: [this.appliance.dbid],
-      type: [this.appliance.type.libelle],
-      disponibilite: [this.appliance.disponibilite],
-    });
+
   }
 
 
@@ -79,19 +78,26 @@ export class ApplianceComponent implements OnInit {
 
 
   }
-  onUpdate(){
-    const updatedAppliance: Appliance = {
-      id: this.appliance.id, // Include the ID of the appliance you want to update
-      libelle: this.updateForm.value.libelle,
-      reference: this.updateForm.value.reference,
-      dbid: this.updateForm.value.dbid,
-      type: { libelle: this.updateForm.value.type },
-      disponibilite: this.updateForm.value.disponibilite
-    };
-    this.applianceUp$.updateAppliance(updatedAppliance).subscribe(result => {
-      console.log('Appliance updated:', result);
-    });
+
+  deleteAppliance(id: number): void {
+    this.applianceDel$.deleteAppliance(id)
+      .subscribe(() => {
+        this.appliances = this.appliances.filter(a => a.id !== id);
+      });
   }
+  // onUpdate(){
+  //   const updatedAppliance: Appliance = {
+  //     id: this.appliance.id, // Include the ID of the appliance you want to update
+  //     libelle: this.updateForm.value.libelle,
+  //     reference: this.updateForm.value.reference,
+  //     dbid: this.updateForm.value.dbid,
+  //     type: { libelle: this.updateForm.value.type },
+  //     disponibilite: this.updateForm.value.disponibilite
+  //   };
+  //   this.applianceUp$.updateAppliance(updatedAppliance).subscribe(result => {
+  //     console.log('Appliance updated:', result);
+  //   });
+  // }
 
   showModal = false;
   toggleModal(){
@@ -101,4 +107,10 @@ export class ApplianceComponent implements OnInit {
   updateModal(){
     this.displayModal=!this.displayModal;
   }
+
+  edit(appliance :any){
+      this.applianceToUpdate=appliance;
+  }
+
+
 }

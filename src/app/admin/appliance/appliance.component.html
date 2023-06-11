@@ -999,7 +999,7 @@
 
 
           <div *ngIf="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
-            <div class="relative w-auto my-6 mx-auto max-w-3xl w-2/3">
+            <div class="relative w-auto my-6 mx-auto max-w-3xl w-1/3">
               <!--content-->
               <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 <!--header-->
@@ -1118,32 +1118,10 @@
                     </td>
                     <td class="py-3 px-6 text-center">
                       <div class="flex item-center justify-center">
-                        <!-- <div
-                          class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                            />
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                            />
-                          </svg>
-                        </div> -->
                         <div
                           class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
                            (click)="updateModal()"
+                           (click)="edit(appliance)"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -1161,6 +1139,7 @@
                         </div>
                         <div
                           class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
+                          (click)="deleteAppliance(appliance.id)"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -1192,7 +1171,7 @@
 
 
 <div *ngIf="displayModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
-  <div class="relative w-auto my-6 mx-auto max-w-3xl w-2/3">
+  <div class="relative w-auto my-6 mx-auto max-w-3xl w-1/3">
     <!--content-->
     <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
       <!--header-->
@@ -1208,28 +1187,28 @@
       </div>
       <!--body-->
       <div class="relative p-6 flex-auto">
-        <form [formGroup]="updateForm" class="space-y-4" (ngSubmit)="onUpdate()">
+        <form class="space-y-4">
           <input type="hidden" name="remember" value="True">
           <div class="rounded-md shadow-sm -space-y-px">
             <div class="grid gap-6">
               <div class="col-span-12">
                 <label for="libelle" class="block text-sm font-medium text-gray-700">libelle</label>
-                <input type="text" name="libelle" formControlName="libelle" id="libelle" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                <input type="text" name="libelle" formControlName="libelle" #libelle [(ngModel)]="applianceToUpdate.libelle" id="libelle" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
               </div>
 
               <div class="col-span-12">
                 <label for="reference" class="block text-sm font-medium text-gray-700">reference</label>
-                <input type="text" name="reference" formControlName="reference" id="reference" autocomplete="reference" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                <input type="text" name="reference" formControlName="reference" #reference [(ngModel)]="applianceToUpdate.reference" id="reference" autocomplete="reference" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
               </div>
               <div class="col-span-12">
                 <label for="dbid" class="block text-sm font-medium text-gray-700">dbid</label>
-                <input type="text" formControlName="dbid" id="dbid" autocomplete="dbid" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                <input type="text" formControlName="dbid" id="dbid" autocomplete="dbid" #dbid [(ngModel)]="applianceToUpdate.dbid" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
               </div>
               <div class="col-span-12">
                 <label for="type" class="block text-sm font-medium text-gray-700">type</label>
-                <input type="text" id="type" name="type" formControlName="type" autocomplete="type" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                <input type="text" id="type" name="type" formControlName="type" #type [(ngModel)]="applianceToUpdate.type.libelle"  autocomplete="type" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
               </div>
-              <select name="disponibilite" formControlName="disponibilite" class="py-3 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+              <select name="disponibilite" formControlName="disponibilite" #disponibilite [(ngModel)]="applianceToUpdate.disponibilite" class="py-3 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
                 <option selected>Disponibilite</option>
                 <option value="true">True</option>
                 <option value="false">False</option>
