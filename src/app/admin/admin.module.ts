@@ -6,6 +6,7 @@ import { AsideAdminComponent } from './aside-admin/aside-admin.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ApplianceComponent } from './appliance/appliance.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ClientComponent } from './client/client.component';
 
 
 const routes : Routes = [
@@ -18,7 +19,8 @@ const routes : Routes = [
   declarations: [
     AdminComponent,
     AsideAdminComponent,
-    ApplianceComponent
+    ApplianceComponent,
+    ClientComponent
   ],
   imports: [
     CommonModule,
