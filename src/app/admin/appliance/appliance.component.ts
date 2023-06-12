@@ -19,8 +19,9 @@ export class ApplianceComponent implements OnInit {
   appliances$! :Observable<Appliance[]>;
   appliances!: Appliance[];
   // appliance$! :Observable<Appliance[]>;
+  appliance!:Appliance;
   modalForm: FormGroup;
-
+  updateForm!: FormGroup;
   applianceToUpdate ={
     libelle:'',
     reference:'',
@@ -85,19 +86,19 @@ export class ApplianceComponent implements OnInit {
         this.appliances = this.appliances.filter(a => a.id !== id);
       });
   }
-  // onUpdate(){
-  //   const updatedAppliance: Appliance = {
-  //     id: this.appliance.id, // Include the ID of the appliance you want to update
-  //     libelle: this.updateForm.value.libelle,
-  //     reference: this.updateForm.value.reference,
-  //     dbid: this.updateForm.value.dbid,
-  //     type: { libelle: this.updateForm.value.type },
-  //     disponibilite: this.updateForm.value.disponibilite
-  //   };
-  //   this.applianceUp$.updateAppliance(updatedAppliance).subscribe(result => {
-  //     console.log('Appliance updated:', result);
-  //   });
-  // }
+  onUpdate(){
+    const updatedAppliance: Appliance = {
+      id: this.appliance.id, // Include the ID of the appliance you want to update
+      libelle: this.updateForm.value.libelle,
+      reference: this.updateForm.value.reference,
+      dbid: this.updateForm.value.dbid,
+      type: { libelle: this.updateForm.value.type },
+      disponibilite: this.updateForm.value.disponibilite
+    };
+    this.applianceUp$.updateAppliance(updatedAppliance).subscribe(result => {
+      console.log('Appliance updated:', result);
+    });
+  }
 
   showModal = false;
   toggleModal(){

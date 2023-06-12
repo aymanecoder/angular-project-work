@@ -1187,7 +1187,7 @@
       </div>
       <!--body-->
       <div class="relative p-6 flex-auto">
-        <form class="space-y-4">
+        <form class="space-y-4" [formGroup]="modalForm" (ngSubmit)="onSubmit()">
           <input type="hidden" name="remember" value="True">
           <div class="rounded-md shadow-sm -space-y-px">
             <div class="grid gap-6">
