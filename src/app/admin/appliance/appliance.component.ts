@@ -23,10 +23,11 @@ export class ApplianceComponent implements OnInit {
   modalForm: FormGroup;
   updateForm!: FormGroup;
   applianceToUpdate ={
+    id:1,
     libelle:'',
     reference:'',
     dbid:'',
-    disponibilite:'',
+    disponibilite: false,
     type:{
       libelle:''
     },
@@ -87,15 +88,8 @@ export class ApplianceComponent implements OnInit {
       });
   }
   onUpdate(){
-    const updatedAppliance: Appliance = {
-      id: this.appliance.id, // Include the ID of the appliance you want to update
-      libelle: this.updateForm.value.libelle,
-      reference: this.updateForm.value.reference,
-      dbid: this.updateForm.value.dbid,
-      type: { libelle: this.updateForm.value.type },
-      disponibilite: this.updateForm.value.disponibilite
-    };
-    this.applianceUp$.updateAppliance(updatedAppliance).subscribe(result => {
+
+    this.applianceUp$.updateAppliance(this.applianceToUpdate).subscribe(result => {
       console.log('Appliance updated:', result);
     });
   }
