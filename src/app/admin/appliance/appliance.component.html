@@ -999,7 +999,7 @@
 
 
           <div *ngIf="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
-            <div class="relative w-auto my-6 mx-auto max-w-3xl w-1/3">
+            <div class="relative w-auto my-6 mx-auto max-w-3xl w-2/3">
               <!--content-->
               <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 <!--header-->
@@ -1171,7 +1171,7 @@
 
 
 <div *ngIf="displayModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
-  <div class="relative w-auto my-6 mx-auto max-w-3xl w-1/3">
+  <div class="relative w-auto my-6 mx-auto max-w-3xl w-2/3">
     <!--content-->
     <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
       <!--header-->
@@ -1187,7 +1187,7 @@
       </div>
       <!--body-->
       <div class="relative p-6 flex-auto">
-        <form class="space-y-4" [formGroup]="modalForm" (ngSubmit)="onUpdate()">
+        <form class="space-y-4" [formGroup]="updateForm" (ngSubmit)="onUpdate()">
           <input type="hidden" name="remember" value="True">
           <div class="rounded-md shadow-sm -space-y-px">
             <div class="grid gap-6">

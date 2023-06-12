@@ -21,7 +21,7 @@ export class ApplianceComponent implements OnInit {
   // appliance$! :Observable<Appliance[]>;
   appliance!:Appliance;
   modalForm: FormGroup;
-  updateForm!: FormGroup;
+  updateForm: FormGroup;
   applianceToUpdate ={
     id:1,
     libelle:'',
@@ -36,6 +36,14 @@ export class ApplianceComponent implements OnInit {
 
   constructor(private listAppliance:ListApplianceService,private applianceAj$ :AddApplianceService,private fb :FormBuilder,private applianceUp$ : EditService,private applianceDel$ : DeleteService){
     this.modalForm = this.fb.group({
+      libelle: ['', Validators.required],
+      reference: ['', Validators.required],
+      dbid: [''],
+      type: [''],
+      disponibilite: [false]
+    });
+
+    this.updateForm = this.fb.group({
       libelle: ['', Validators.required],
       reference: ['', Validators.required],
       dbid: [''],
