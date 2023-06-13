@@ -86,6 +86,7 @@ export class TypeComponent {
 
 
      this.types$ = this.typeService.getTypes();
+     
 
     //  this.listAppliance.getAppliances().subscribe(res=>console.log(res));
 

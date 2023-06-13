@@ -1,14 +1,18 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Tps } from '../../interfaces/Tps';
-import { Observable } from 'rxjs';
+import { Observable, Subject, tap } from 'rxjs';
 import { environement } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TypePrestationService {
+  private _refreshNeeded$ = new Subject<void>();
+  get refreshNeeded$(){
+    return this._refreshNeeded$;
 
+  }
   apiUrl=environement.apiUrl ;
   constructor(private http:HttpClient) { }
 
@@ -36,7 +40,12 @@ export class TypePrestationService {
       })
 
 
-    return this.http.post<Tps>(`${this.apiUrl}/admin/Tp`, Tps,{headers: headers});
+    return this.http.post<Tps>(`${this.apiUrl}/admin/Tp`, Tps,{headers: headers})
+    .pipe(
+      tap(() =>{
+        this._refreshNeeded$.next();
+      })
+    );
   }
 
   updateTps(Tps: Tps): Observable<Tps> {

@@ -5,7 +5,7 @@ import { Tps } from 'src/app/_core/interfaces/Tps';
 import { TypePrestationService } from 'src/app/_core/services/typePrestation/type-prestation.service';
 
 @Component({
-  selector: 'app-type-prestation',
+  selector: 'app-Tps-prestation',
   templateUrl: './type-prestation.component.html',
   styleUrls: ['./type-prestation.component.scss']
 })
@@ -88,6 +88,9 @@ export class TypePrestationComponent {
      this.tps$ = this.tpService.getTps();
 
     //  this.listAppliance.getAppliances().subscribe(res=>console.log(res));
+    // this.tpService.refreshNeeded$.subscribe(res=>{
+    //   this.onSubmit();
+    // });
 
 
 
