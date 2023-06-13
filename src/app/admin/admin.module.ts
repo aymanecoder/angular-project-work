@@ -8,6 +8,7 @@ import { ApplianceComponent } from './appliance/appliance.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ClientComponent } from './client/client.component';
 import { ContactComponent } from './contact/contact.component';
+import { TypeComponent } from './type/type.component';
 
 
 const routes : Routes = [
@@ -24,7 +25,8 @@ const routes : Routes = [
     AsideAdminComponent,
     ApplianceComponent,
     ClientComponent,
-    ContactComponent
+    ContactComponent,
+    TypeComponent
   ],
   imports: [
     CommonModule,

@@ -988,7 +988,7 @@
         <div
           class="min-w-screen min-h-screen bg-gray-100 flex items-center justify-center bg-gray-100 font-sans overflow-hidden"
         >
-          <div class="w-full lg:w-5/6" style="margin-bottom: 250px">
+          <div class="w-full lg:w-5/6" style="margin-bottom: 400px">
             <button id="open" class="px-5 py-2 bg-indigo-500 hover:bg-indigo-700 text-white cursor-pointer rounded-md" style="margin-left: 1265px;" (click)="toggleModal()">
               Add Appliance
           </button>
@@ -1027,16 +1027,13 @@
                           <label for="email" class="block text-sm font-medium text-gray-700">email</label>
                           <input type="text" name="email" formControlName="email" id="email" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         </div>
-
-
-
                         <div class="col-span-12">
                           <label for="prenom" class="block text-sm font-medium text-gray-700">prenom</label>
                           <input type="text" formControlName="prenom" id="prenom" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         </div>
                         <div class="col-span-12">
                           <label for="telephone" class="block text-sm font-medium text-gray-700">telephone</label>
-                          <input type="text" id="telephone" name="telephone"  autocomplete="telephone" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                          <input type="text" id="telephone" name="telephone" formControlName="telephone"  autocomplete="telephone" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         </div>
                         <div class="col-span-12">
                           <label for="fonction" class="block text-sm font-medium text-gray-700">fonction</label>
@@ -1071,7 +1068,7 @@
                   <tr
                     class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal"
                   >
-
+               
                     <th class="py-3 px-6 text-left">email</th>
                     <th class="py-3 px-6 text-left">nom</th>
                     <th class="py-3 px-6 text-center">prenom</th>
@@ -1079,17 +1076,13 @@
                     <th class="py-3 px-6 text-center">fonction</th>
                     <th class="py-3 px-6 text-center">Actions</th>
                   </tr>
-                  <!-- email:string;
-                  nom:string;
-                  prenom:string;
-                  telephone:string;
-                  fonction:string; -->
                 </thead>
                 <tbody class="text-gray-600 text-sm font-light">
                   <tr
                     class="border-b border-gray-200 hover:bg-gray-100"
                     *ngFor="let contact of contacts$ | async"
                   >
+
 
                     <td class="py-3 px-6 text-left">
                       <div class="flex items-center">
