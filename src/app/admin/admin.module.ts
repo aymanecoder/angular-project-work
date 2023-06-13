@@ -17,7 +17,8 @@ const routes : Routes = [
   {path: 'admin/appliance', component: ApplianceComponent},
   {path: 'admin/client', component: ClientComponent},
   {path: 'admin/contact', component: ContactComponent},
-  {path: 'admin/type',component:TypeComponent}
+  {path: 'admin/type',component:TypeComponent},
+  {path: 'admin/tp', component: TypePrestationComponent},
 ];
 
 
