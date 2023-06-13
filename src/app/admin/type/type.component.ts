@@ -29,7 +29,6 @@ export class TypeComponent {
   updateForm: FormGroup;
 
   typeToUpdate ={
-
     id:1,
     libelle:''
 

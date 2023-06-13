@@ -34,10 +34,10 @@ export class TypeService {
       })
 
 
-    return this.http.post<Type>(`${this.apiUrl}/admin/contact`, type,{headers: headers});
+    return this.http.post<Type>(`${this.apiUrl}/admin/type`, type,{headers: headers});
   }
 
-  updateType(contact: Type): Observable<Type> {
+  updateType(type: Type): Observable<Type> {
     const token = localStorage.getItem('access_token'); // Check for JWT in local storage
 
     if (!token) {
@@ -49,9 +49,9 @@ export class TypeService {
       Authorization: `Bearer ${token}`
     });
 
-    const url = `${this.apiUrl}/admin/contact/${contact.id}`; // Use the ID of the appliance to update
+    const url = `${this.apiUrl}/admin/type/${type.id}`; // Use the ID of the appliance to update
 
-    return this.http.put<Type>(url, contact, { headers });
+    return this.http.put<Type>(url, type, { headers });
   }
 
 
@@ -67,7 +67,7 @@ export class TypeService {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`
     });
-    const url = `${this.apiUrl}/admin/contact/${id}`;
+    const url = `${this.apiUrl}/admin/type/${id}`;
     return this.http.delete(url,{headers: headers});
   }
 }
