@@ -103,8 +103,8 @@ export class ClientComponent {
     this.displayModal=!this.displayModal;
   }
 
-  edit(appliance :any){
-      this.clientToUpdate=appliance;
+  edit(client :any){
+      this.clientToUpdate=client;
   }
 
 }

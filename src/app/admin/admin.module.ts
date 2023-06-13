@@ -13,7 +13,8 @@ import { ContactComponent } from './contact/contact.component';
 const routes : Routes = [
   {path: 'admin', component: AdminComponent},
   {path: 'admin/appliance', component: ApplianceComponent},
-  {path: 'admin/client', component: ClientComponent}
+  {path: 'admin/client', component: ClientComponent},
+  {path: 'admin/contact', component: ContactComponent}
 ];
 
 
