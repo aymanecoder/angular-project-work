@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ApplianceComponent } from './appliance/appliance.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ClientComponent } from './client/client.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 const routes : Routes = [
@@ -21,7 +22,8 @@ const routes : Routes = [
     AdminComponent,
     AsideAdminComponent,
     ApplianceComponent,
-    ClientComponent
+    ClientComponent,
+    ContactComponent
   ],
   imports: [
     CommonModule,
