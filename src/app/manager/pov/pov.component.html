@@ -434,7 +434,7 @@
         >
           <div class="flex items-center">
             <div>
-              <svg
+              <!-- <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="icon icon-tabler icon-tabler-grid"
                 width="20"
@@ -451,9 +451,9 @@
                 <rect x="14" y="4" width="6" height="6" rx="1" />
                 <rect x="4" y="14" width="6" height="6" rx="1" />
                 <rect x="14" y="14" width="6" height="6" rx="1" />
-              </svg>
+              </svg> -->
             </div>
-            <span class="ml-2">Dashboard</span>
+            <!-- <span class="ml-2">Dashboard</span> -->
           </div>
         </li>
         <li
@@ -726,7 +726,7 @@
                     class="w-8 h-8 rounded-md"
                   />
                   <p class="md:text-xl text-gray-800 text-base leading-4 ml-2">
-                    Admin
+                    Manager
                   </p>
                 </div>
                 <ul class="flex">
@@ -936,7 +936,7 @@
                     ></div>
                   </div>
                 </div>
-                <p class="text-gray-800 text-sm mx-3">Admin</p>
+                <p class="text-gray-800 text-sm mx-3">Manager</p>
                 <div class="cursor-pointer text-gray-600">
                   <svg
                     aria-haspopup="true"
@@ -1019,7 +1019,7 @@
                   <form [formGroup]="modalForm" class="space-y-4" (ngSubmit)="onSubmit()">
                     <input type="hidden" name="remember" value="True">
                     <div class="rounded-md shadow-sm -space-y-px">
-                      <div class="grid gap-6">
+                      <div class="grid gap-10">
                         <div class="col-span-12">
                           <label for="libellePov" class="block text-sm font-medium text-gray-700">libellePov</label>
                           <input type="text" name="libellePov" formControlName="libellePov" id="libelle" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
@@ -1184,7 +1184,7 @@
       <!--header-->
       <div class="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
         <h3 class="text-3xl font-semibold">
-          Update Appliance
+          Update Pov
         </h3>
         <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" (click)="toggleModal()">
           <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
@@ -1197,7 +1197,7 @@
         <form [formGroup]="updateForm" class="space-y-4"  (ngSubmit)="onUpdate()">
           <input type="hidden" name="remember" value="True">
           <div class="rounded-md shadow-sm -space-y-px">
-            <div class="grid gap-6">
+            <div class="grid gap-10">
               <div class="col-span-12">
                 <label for="libellePov" class="block text-sm font-medium text-gray-700">libellePov</label>
                 <input type="text" name="libellePov" formControlName="libellePov" #libellePov [(ngModel)]="povToUpdate.libellePov" id="libellePov" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">

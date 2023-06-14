@@ -4,6 +4,8 @@ import { ManagerComponent } from './manager.component';
 import {  RouterModule, Routes } from '@angular/router';
 import { AsideManagerComponent } from './aside-manager/aside-manager.component';
 import { PovComponent } from './pov/pov.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SuivieComponent } from './suivie/suivie.component';
 
 
 const routes:Routes =[
@@ -15,11 +17,13 @@ const routes:Routes =[
   declarations: [
    ManagerComponent,
    AsideManagerComponent,
-   PovComponent
+   PovComponent,
+   SuivieComponent
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ReactiveFormsModule
   ]
 })
 export class ManagerModule { }
