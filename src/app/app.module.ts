@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminModule } from './admin/admin.module';
+import { ManagerModule } from './manager/manager.module';
 
 
 
@@ -26,7 +27,8 @@ import { AdminModule } from './admin/admin.module';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    AdminModule
+    AdminModule,
+    ManagerModule
 
 
 
