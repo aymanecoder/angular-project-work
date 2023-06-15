@@ -124,7 +124,9 @@ export class SuivieComponent {
       offreCommercial: formValues.offreCommercial,
       montant: formValues.montant,
       compteRendu: formValues.compteRendu,
-      
+      typePrestation:{id:2,libelle:formValues.typePrestation},
+      pov:{id:4,libellePov:formValues.pov}
+
 
     };
 
