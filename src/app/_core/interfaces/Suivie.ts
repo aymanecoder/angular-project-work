@@ -2,7 +2,7 @@ export interface Suivie
   {
 		id: number,
 		offreCommercial: boolean,
-		montant: number,
+		montant: string,
 		compteRendu: string,
 		typePrestation: {
       id:number,

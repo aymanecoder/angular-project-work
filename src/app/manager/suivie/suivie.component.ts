@@ -54,7 +54,7 @@ export class SuivieComponent {
     pov:{
       id:4,
       libellePov:'',
-      description:''
+
     }
 
   }
@@ -179,5 +179,20 @@ export class SuivieComponent {
     });
 
 
+}
+edit(suivie :any){
+
+  this.suivieToUpdate=suivie;
+
+}
+
+
+showModal = false;
+toggleModal(){
+this.showModal = !this.showModal;
+}
+displayModal=false;
+updateModal(){
+this.displayModal=!this.displayModal;
 }
 }
