@@ -10,8 +10,7 @@ export interface Suivie
 		},
 		pov: {
 			id: number,
-      libellePov: string,
-      description:string,
+      libellePov: string
 
 
 		}

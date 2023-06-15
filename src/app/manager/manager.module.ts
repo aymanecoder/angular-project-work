@@ -10,7 +10,8 @@ import { SuivieComponent } from './suivie/suivie.component';
 
 const routes:Routes =[
   {path: 'manager', component: ManagerComponent},
-  {path:'manager/pov', component: PovComponent}
+  {path:'manager/pov', component: PovComponent},
+  {path:'manager/suivie', component: SuivieComponent}
 ]
 
 @NgModule({
