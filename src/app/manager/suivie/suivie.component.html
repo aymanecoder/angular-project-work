@@ -1007,7 +1007,7 @@
                 <!--header-->
                 <div class="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
                   <h3 class="text-3xl font-semibold">
-                    Add Pov
+                    Add Suivie
                   </h3>
                   <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" (click)="toggleModal()">
                     <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
@@ -1077,7 +1077,7 @@
                     <th class="py-3 px-6 text-left">montant </th>
                     <!-- <th class="py-3 px-6 text-left">DateFin</th> -->
                     <th class="py-3 px-6 text-center">offreCommercial</th>
-                    <th class="py-3 px-6 text-center">CompteManager</th>
+                    <!-- <th class="py-3 px-6 text-center">CompteManager</th> -->
                     <th class="py-3 px-6 text-center">libelleType</th>
                     <th class="py-3 px-6 text-center">libellePov</th>
                     <th class="py-3 px-6 text-center">Actions</th>
@@ -1186,7 +1186,7 @@
       <!--header-->
       <div class="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
         <h3 class="text-3xl font-semibold">
-          Update Appliance
+          Update Suivie
         </h3>
         <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" (click)="toggleModal()">
           <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
@@ -1215,9 +1215,9 @@
               </div>
               <div class="col-span-12">
                 <label for="type" class="block text-sm font-medium text-gray-700">typePrestation</label>
-                <input type="text" id="typePrestation" name="typePrestation" formControlName="typePrestation" autocomplete="type" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                <input type="text" id="typePrestation" name="typePrestation" formControlName="typePrestation" #typePrestation [(ngModel)]="suivieToUpdate.typePrestation.libelle" autocomplete="type" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
               </div>
-              <select name="offreCommercial" formControlName="offreCommercial" class="py-3 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+              <select name="offreCommercial" #offreCommercial [(ngModel)]="suivieToUpdate.offreCommercial" formControlName="offreCommercial" class="py-3 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
                 <option selected>offreCommercial</option>
                 <option value="true">True</option>
                 <option value="false">False</option>
