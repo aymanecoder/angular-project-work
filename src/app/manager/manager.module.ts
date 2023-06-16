@@ -6,6 +6,7 @@ import { AsideManagerComponent } from './aside-manager/aside-manager.component';
 import { PovComponent } from './pov/pov.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SuivieComponent } from './suivie/suivie.component';
+import { SeanceComponent } from './seance/seance.component';
 
 
 const routes:Routes =[
@@ -19,7 +20,8 @@ const routes:Routes =[
    ManagerComponent,
    AsideManagerComponent,
    PovComponent,
-   SuivieComponent
+   SuivieComponent,
+   SeanceComponent
   ],
   imports: [
     CommonModule,
