@@ -1,4 +1,4 @@
-
+<!--
 <div class="w-full max-w-full">
   <div class="relative flex flex-col min-w-0 break-words bg-white border-0 shadow-soft-xl rounded-2xl bg-clip-border">
     <div class="table-responsive">
@@ -992,7 +992,7 @@
         >
           <div class="w-full lg:w-5/6" style="margin-bottom: 250px">
             <button id="open" class="px-8 py-2 bg-indigo-500 hover:bg-indigo-700 text-white cursor-pointer rounded-md" style="margin-left: 1265px;" (click)="toggleModal()">
-              Add Pov
+              Add Suivie
           </button>
           <!-- <button class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="toggleModal()">
             Open regular modal
@@ -1023,33 +1023,27 @@
                       <div class="grid gap-10">
                         <div class="col-span-12">
                           <label for="libellePov" class="block text-sm font-medium text-gray-700">libellePov</label>
-                          <input type="text" name="libellePov" formControlName="libellePov" id="libelle" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                          <input type="text" name="pov" formControlName="pov" id="libelle" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         </div>
 
                         <div class="col-span-12">
-                          <label for="description" class="block text-sm font-medium text-gray-700">description</label>
-                          <input type="text" name="description" formControlName="description" id="description" autocomplete="reference" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                          <label for="description" class="block text-sm font-medium text-gray-700">montant</label>
+                          <input type="text" name="montant" formControlName="montant" id="montant" autocomplete="montant" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         </div>
                         <div class="col-span-12">
-                          <label for="compteManager" class="block text-sm font-medium text-gray-700">compteManager </label>
-                          <input type="text" name="compteManager" formControlName="compteManager" id="compteManager" autocomplete="dbid" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                          <label for="compteManager" class="block text-sm font-medium text-gray-700">compteRendu </label>
+                          <input type="text" name="compteRendu" formControlName="compteRendu" id="compteRendu" autocomplete="dbid" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         </div>
                         <div class="col-span-12">
-                          <label for="type" class="block text-sm font-medium text-gray-700">dateDebut</label>
-                          <input type="text" id="dateDebut" name="dateDebut" formControlName="dateDebut" autocomplete="type" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                          <label for="type" class="block text-sm font-medium text-gray-700">typePrestation</label>
+                          <input type="text" id="typePrestation" name="typePrestation" formControlName="typePrestation" autocomplete="type" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         </div>
-                        <div class="col-span-12">
-                          <label for="type" class="block text-sm font-medium text-gray-700">dateFin</label>
-                          <input type="text" id="dateFin" name="dateFin" formControlName="dateFin" autocomplete="type" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                        </div>
-                        <div class="col-span-12">
-                          <label for="type" class="block text-sm font-medium text-gray-700">ingenieurCybersecurite</label>
-                          <input type="text" id="ingenieurCybersecurite" name="ingenieurCybersecurite" formControlName="ingenieurCybersecurite" autocomplete="ingenieurCybersecurite" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                        </div>
-                        <div class="col-span-12">
-                          <label for="type" class="block text-sm font-medium text-gray-700">analystCybersecurite</label>
-                          <input type="text" id="analystCybersecurite" name="analystCybersecurite" formControlName="analystCybersecurite" autocomplete="analystCybersecurite" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                        </div>
+                        <select name="offreCommercial" formControlName="offreCommercial" class="py-3 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+                          <option selected>offreCommercial</option>
+                          <option value="true">True</option>
+                          <option value="false">False</option>
+
+                        </select>
 
                       </div>
                     </div>
@@ -1155,7 +1149,7 @@
                         </div>
                         <div
                           class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
-                          (click)="deleteSuivie(Suivie.id)"
+                          (click)="deleteSuivie(suivie.id)"
                         >
                         <!--  -->
                           <svg
@@ -1185,7 +1179,6 @@
   </div>
 </div>
 
-
 <div *ngIf="displayModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
   <div class="relative w-auto my-6 mx-auto max-w-3xl w-2/3">
     <!--content-->
@@ -1193,7 +1186,7 @@
       <!--header-->
       <div class="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
         <h3 class="text-3xl font-semibold">
-          Update Pov
+          Update Appliance
         </h3>
         <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" (click)="toggleModal()">
           <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
@@ -1203,39 +1196,33 @@
       </div>
       <!--body-->
       <div class="relative p-6 flex-auto">
-        <form [formGroup]="updateForm" class="space-y-4"  (ngSubmit)="onUpdate()">
+        <form class="space-y-4" [formGroup]="updateForm" (ngSubmit)="onUpdate()">
           <input type="hidden" name="remember" value="True">
           <div class="rounded-md shadow-sm -space-y-px">
-            <div class="grid gap-10">
+            <div class="grid gap-6">
               <div class="col-span-12">
                 <label for="libellePov" class="block text-sm font-medium text-gray-700">libellePov</label>
-                <input type="text" name="libellePov" formControlName="libellePov" #libellePov [(ngModel)]="povToUpdate.libellePov" id="libellePov" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                <input type="text" name="pov" formControlName="pov" id="libelle" autocomplete="given-name" #pov [(ngModel)]="suivieToUpdate.pov.libellePov"  class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
               </div>
 
               <div class="col-span-12">
-                <label for="description" class="block text-sm font-medium text-gray-700">description</label>
-                <input type="text" name="description" formControlName="description" id="description" #description [(ngModel)]="povToUpdate.description" autocomplete="reference" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                <label for="description" class="block text-sm font-medium text-gray-700">montant</label>
+                <input type="text" name="montant" formControlName="montant" id="montant" autocomplete="montant" #montant [(ngModel)]="suivieToUpdate.montant" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
               </div>
               <div class="col-span-12">
-                <label for="compteManager" class="block text-sm font-medium text-gray-700">compteManager </label>
-                <input type="text" name="compteManager" formControlName="compteManager" id="compteManager" #compteManager [(ngModel)]="povToUpdate.compteManager" autocomplete="compteManager" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                <label for="compteManager" class="block text-sm font-medium text-gray-700">compteRendu </label>
+                <input type="text" name="compteRendu" formControlName="compteRendu" id="compteRendu" #compteRendu [(ngModel)]="suivieToUpdate.compteRendu"  autocomplete="dbid" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
               </div>
               <div class="col-span-12">
-                <label for="type" class="block text-sm font-medium text-gray-700">dateDebut</label>
-                <input type="text" id="dateDebut" name="dateDebut" formControlName="dateDebut" #dateDebut [(ngModel)]="povToUpdate.dateDebut" autocomplete="type" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                <label for="type" class="block text-sm font-medium text-gray-700">typePrestation</label>
+                <input type="text" id="typePrestation" name="typePrestation" formControlName="typePrestation" autocomplete="type" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
               </div>
-              <div class="col-span-12">
-                <label for="type" class="block text-sm font-medium text-gray-700">dateFin</label>
-                <input type="text" id="dateFin" name="dateFin" formControlName="dateFin" #dateFin [(ngModel)]="povToUpdate.dateFin" autocomplete="dateFin" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-              </div>
-              <div class="col-span-12">
-                <label for="type" class="block text-sm font-medium text-gray-700">ingenieurCybersecurite</label>
-                <input type="text" id="ingenieurCybersecurite" name="ingenieurCybersecurite" formControlName="ingenieurCybersecurite" #ingenieurCybersecurite [(ngModel)]="povToUpdate.ingenieurCybersecurite" autocomplete="ingenieurCybersecurite" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-              </div>
-              <div class="col-span-12">
-                <label for="type" class="block text-sm font-medium text-gray-700">analystCybersecurite</label>
-                <input type="text" id="analystCybersecurite" name="analystCybersecurite" formControlName="analystCybersecurite" #analystCybersecurite [(ngModel)]="povToUpdate.analystCybersecurite" autocomplete="analystCybersecurite" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-              </div>
+              <select name="offreCommercial" formControlName="offreCommercial" class="py-3 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+                <option selected>offreCommercial</option>
+                <option value="true">True</option>
+                <option value="false">False</option>
+
+              </select>
 
             </div>
           </div>
@@ -1256,3 +1243,4 @@
   </div>
 </div>
 <div *ngIf="displayModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
+
