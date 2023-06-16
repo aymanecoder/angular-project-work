@@ -1,4 +1,5 @@
-<!-- <div class="w-full max-w-full">
+
+<div class="w-full max-w-full">
   <div class="relative flex flex-col min-w-0 break-words bg-white border-0 shadow-soft-xl rounded-2xl bg-clip-border">
     <div class="table-responsive">
       <table class="table table-flush text-slate-500" datatable id="datatable-search">
@@ -1091,7 +1092,7 @@
                 <tbody class="text-gray-600 text-sm font-light">
                   <tr
                     class="border-b border-gray-200 hover:bg-gray-100"
-                    *ngFor="let pov of povs$ | async"
+                    *ngFor="let suivie of suivies$ | async"
                   >
                     <td class="py-3 px-6 text-left whitespace-nowrap">
                       <div class="flex items-center">
@@ -1127,7 +1128,7 @@
                         <div
                           class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
                            (click)="updateModal()"
-                           (click)="edit(pov)"
+                           (click)="edit(suivie)"
                         >
                         <!-- (click)="edit(appliance)" -->
                           <svg
@@ -1146,7 +1147,7 @@
                         </div>
                         <div
                           class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
-                          (click)="deletePov(pov.id)"
+                          (click)="deleteSuivie(Suivie.id)"
                         >
                         <!--  -->
                           <svg

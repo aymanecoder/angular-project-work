@@ -13,13 +13,13 @@ export class SuivieComponent {
   isList: number = 0;
   isMenu: boolean = false;
   isSearch: boolean = false;
-  povs$! :Observable<Suivie[]>;
+  suivies$! :Observable<Suivie[]>;
 
-  povs!: Suivie[];
+  suivies!: Suivie[];
 
   // appliance$! :Observable<Appliance[]>;
 
-  Suivie!:Suivie;
+  suivie!:Suivie;
 
   modalForm: FormGroup;
 
@@ -103,7 +103,7 @@ export class SuivieComponent {
 
 
 
-     this.povs$ = this.suivieService.getSuivies();
+     this.suivies$ = this.suivieService.getSuivies();
 
     //  this.listAppliance.getAppliances().subscribe(res=>console.log(res));
 
@@ -118,7 +118,7 @@ export class SuivieComponent {
 
 
 
-    const Suivie: Suivie = {
+    const suivie: Suivie = {
 
       id:formValues.id,
       offreCommercial: formValues.offreCommercial,
@@ -132,7 +132,7 @@ export class SuivieComponent {
 
 
 
-    this.suivieService.addSuivie(Suivie).subscribe({
+    this.suivieService.addSuivie(suivie).subscribe({
 
       next: (newPov) => {
 
@@ -162,7 +162,7 @@ export class SuivieComponent {
 
       .subscribe(() => {
 
-        this.povs = this.povs.filter(a => a.id !== id);
+        this.suivies = this.suivies.filter(a => a.id !== id);
 
       });
 
