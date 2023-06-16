@@ -1079,13 +1079,13 @@
                   <tr
                     class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal"
                   >
-                    <th class="py-3 px-6 text-left">LibellePov</th>
-                    <th class="py-3 px-6 text-left">DateDebut </th>
-                    <th class="py-3 px-6 text-left">DateFin</th>
-                    <th class="py-3 px-6 text-center">Decription</th>
+                    <th class="py-3 px-6 text-left">compteRendu</th>
+                    <th class="py-3 px-6 text-left">montant </th>
+                    <!-- <th class="py-3 px-6 text-left">DateFin</th> -->
+                    <th class="py-3 px-6 text-center">offreCommercial</th>
                     <th class="py-3 px-6 text-center">CompteManager</th>
-                    <th class="py-3 px-6 text-center">ingenieurCybersecurite</th>
-                    <th class="py-3 px-6 text-center">analystCybersecurite</th>
+                    <th class="py-3 px-6 text-center">libelleType</th>
+                    <th class="py-3 px-6 text-center">libellePov</th>
                     <th class="py-3 px-6 text-center">Actions</th>
                   </tr>
                 </thead>
@@ -1096,33 +1096,41 @@
                   >
                     <td class="py-3 px-6 text-left whitespace-nowrap">
                       <div class="flex items-center">
-                        <span class="font-medium">{{pov.libellePov}}</span>
+                        <span class="font-medium">{{suivie.compteRendu}}</span>
                       </div>
                     </td>
                     <td class="py-3 px-6 text-left">
                       <div class="flex items-center">
-                        <span>{{pov.dateDebut}}</span>
+                        <span>{{suivie.montant}}</span>
                       </div>
                     </td>
-                    <td class="py-3 px-6 text-left">
-                      <div class="flex items-center">
-                        <span> {{pov.dateFin}}</span>
-                      </div>
+                    <td class="py-3 px-6 text-center">
+                      <span
+                        [ngClass]="{
+                          'bg-purple-200': suivie.offreCommercial,
+                          'text-purple-600': suivie.offreCommercial,
+                          'bg-red-200': !suivie.offreCommercial,
+                          'text-red-600': !suivie.offreCommercial
+                        }"
+                        class="py-1 px-3 rounded-full text-xs"
+                      >
+                        {{ suivie.offreCommercial ? "Active" : "Inactive" }}
+                      </span>
                     </td>
                     <td class="py-3 px-6 text-center">
                       <div class="flex items-center justify-center">
-                        <span> {{pov.description}}</span>
+                        <span> {{suivie.typePrestation.libelle}}</span>
                       </div>
                     </td>
                     <td class="py-3 px-6 text-center">
-                      <span>{{pov.compteManager}}</span>
+                      <span>{{suivie.pov.libellePov}}</span>
                     </td>
-                    <td class="py-3 px-6 text-center">
+                    <!-- <td class="py-3 px-6 text-center">
                       <span>{{pov.ingenieurCybersecurite}}</span>
                     </td>
                     <td class="py-3 px-6 text-center">
                       <span>{{pov.analystCybersecurite}}</span>
-                    </td>
+                    </td> -->
                     <td class="py-3 px-6 text-center">
                       <div class="flex item-center justify-center">
                         <div
